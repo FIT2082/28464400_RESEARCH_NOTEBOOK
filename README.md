@@ -8,3 +8,10 @@ Our research project is to detect sudden surge or plunge of electricity consumpt
 Research Supervisor - Lachlan Andrew
 
 Researchers - Surayez Rahman & Adolphus Lee
+
+
+## Sample Data
+The following image shows the graphical representation of the dataset of electricity consumption from which we have to detect the horizontal edges.
+
+![Default Image](/images/default_test_image.png)
+
