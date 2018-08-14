@@ -10,8 +10,10 @@ Both me and Adolphus have looked into and understood the datasets. We explored d
 ###  Edge Detection librares in MATLAB
 I was exploring MATLAB built in functions to try to detect edges in our intensity image, and we used Canny and Prewitt methods. However, the resulting image is bad at understanding the horizontal edges in the default image, therefore we could conclude after several trials that using the libraries of MATLAB would not be of much help to our project.
 
+The following image is the default image that results from the dataset
 ![Default Image](/images/default_test_image.png)
 
+The following image is the image that results from running the canny and prewitt edge detection methods using MATLAB library. As clearly it can be seen, the edge detections are not accurate and it fails to detect most horizontal edges from the default picture.
 ![Canny Prewitt Edge Detection](/images/canny_prewitt_edgedetection.png)
 
 
