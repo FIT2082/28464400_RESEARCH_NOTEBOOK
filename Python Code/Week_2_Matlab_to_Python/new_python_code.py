@@ -10,8 +10,12 @@ def find_edge(userData, val):
         current_day_sd = np.std(current_day_array)
 
         for hours in range(0,47):
-            if abs(matrix[hours][days] - matrix[hours-1][days]) >= current_day_sd:
+            if (matrix[hours][days] - matrix[hours-1][days]) >= current_day_sd:
                 matrix[hours][days] = val
+
+            if (matrix[hours][days] - matrix[hours+1][days]) >= current_day_sd:
+                matrix[hours][days] = val
+
 
 
     for days in range(0, 364):
@@ -27,7 +31,7 @@ matrix = data['image']
 #convert data into array (each array = 1 time slot, index(item) = day
 
 # print(np.squeeze(np.matrix(matrix)))
-find_edge(matrix, 5)
+# find_edge(matrix, 5)
 
 plot.pcolor(matrix) #plot
 plot.gca().invert_yaxis()
