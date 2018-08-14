@@ -13,7 +13,7 @@ I was exploring MATLAB built in functions to try to detect edges in our intensit
 The following image is the default image that results from the dataset
 ![Default Image](/images/default_test_image.png)
 
-The following image is the image that results from running the canny and prewitt edge detection methods using MATLAB library. As clearly it can be seen, the edge detections are not accurate and it fails to detect most horizontal edges from the default picture.
+The following image is the image that results from running the canny and prewitt edge detection methods respectively, using MATLAB library. As clearly it can be seen, the edge detections are not accurate and it fails to detect most horizontal edges from the default picture.
 ![Canny Prewitt Edge Detection](/images/canny_prewitt_edgedetection.png)
 
 
