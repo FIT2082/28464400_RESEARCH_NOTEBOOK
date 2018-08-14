@@ -28,7 +28,7 @@ def find_edge(userData, val):
 data = scipy.io.loadmat('matlab.mat')
 matrix = data['image']
 
-#convert data into array (each array = 1 time slot, index(item) = day
+#converts data into array (each array = 1 time slot, index(item) = day
 
 # print(np.squeeze(np.matrix(matrix)))
 find_edge(matrix, 5)
