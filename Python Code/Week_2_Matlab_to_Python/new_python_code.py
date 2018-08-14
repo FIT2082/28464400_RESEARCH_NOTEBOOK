@@ -31,7 +31,7 @@ matrix = data['image']
 #convert data into array (each array = 1 time slot, index(item) = day
 
 # print(np.squeeze(np.matrix(matrix)))
-# find_edge(matrix, 5)
+find_edge(matrix, 5)
 
 plot.pcolor(matrix) #plot
 plot.gca().invert_yaxis()
