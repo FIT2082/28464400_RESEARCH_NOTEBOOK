@@ -21,7 +21,7 @@ The following image is the image that results from running the canny and prewitt
 ### Python Script to detect edges
 Me and Adolphus have worked on writing a Python script that detects edges and marks them in yellow by calculations involving standard deviation for each days. The following image shows the results, but once again, the accuracy is very low.
 
-![Canny Prewitt Edge Detection](/images/canny_prewitt_edgedetection.png)
+![Python Script Edge Detection](/images/week2_python.png)
 
 ## Goals before next meeting
 Since we could not properly work on converting the initial MATLAB code into Python this week, this will still be our top most priority for next week's goals. Also, the accuracy of the previous implemenetations are poor and hencewe aim to probe further down our research into detecting edges using LSTM or Image classifiers. We will keep on implementing new things to try to get the most optimal results. However, we will be showing all of our progress to Lachlan on our next meeting.
