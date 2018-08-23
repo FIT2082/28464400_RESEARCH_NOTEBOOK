@@ -29,7 +29,7 @@ def find_bounds(rect, day_ranges, time_ranges):
 
         # Adding the bounds to the bounds_array
         bounds_array.append([bounds[0][0], bounds[0][1], bounds[0][2], bounds[0][3]])
-        # print([bounds[0][0], bounds[0][1], bounds[0][2], bounds[0][3]])
+        # print([bounds[0][0], bounds[0][1], bounds[0][2], bounds[0][3]]) tracke
 
         # Print the ranges of data obtained
         # print(time_range, "\t" , number_of_days)
