@@ -56,7 +56,7 @@ def clean(matrixlist):  # remove noises
                 matrixlist[hours][days - 1] = 10
 
 
-def colormap(matrixlist):  # plotting
+def colormap(matrixlist):  # plotting the graph
     plt.pcolor(matrixlist)
     plt.gca().invert_yaxis()
     plt.show()
