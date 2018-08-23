@@ -34,13 +34,10 @@ def find_bounds(rect, day_ranges, time_ranges):
         # Print the ranges of data obtained
         # print(time_range, "\t" , number_of_days)
 
-    plot_histogram(day_ranges, "Day Lengths")
-    plot_histogram(time_ranges, "Time Ranges")
-
     return bounds_array
 
 
-def find_edge(userData, val):
+def find_edge(matrix, val):
     for days in range(0, 365):
         current_day_array = []
         for hours in range(0,47):
@@ -61,7 +58,7 @@ def find_edge(userData, val):
                 matrix[hours][days-1] = 10
 
 
-def add_rect_edges(known_bounds):
+def add_rect_edges(matrix, known_bounds):
     for bounds in known_bounds:
         start_day = math.floor(bounds[0])
         end_day = math.floor(bounds[2])
@@ -81,27 +78,71 @@ def plot_matrix(matrix):
     plot.gca().invert_yaxis()
     plot.show()
 
-if __name__ == "__main__":
-    mat = scipy.io.loadmat('data/house00002.mat', squeeze_me=True)
 
-    # Get variable array rect as rect
-    rect = mat['rect']
-    # Get variable array image as matrix
-    matrix = mat['image']
-
+def run_all_edge_data():
     day_ranges = []
     time_ranges = []
 
-    # Find the bounding data from rect
-    current_bounds_array = find_bounds(rect, day_ranges, time_ranges)
+    for i in range(1, 3500):
+        try:
+            string1 = 'data/saved_rect'
+            string2 = '.mat'
+            dif = 24 - (len(string1) + len(string2) + len(str(i)))
 
-    # Converts data into array (each array = 1 time slot, index(item) = day
-    # find_edge(matrix, 5)
+            file_name = string1 + str(dif * "0") + str(i) + string2
 
-    #Plot the edges detected from the rect array
-    add_rect_edges(current_bounds_array)
+            mat = scipy.io.loadmat(file_name, squeeze_me=True)
+
+            # Get variable array rect as rect
+            rect = mat['rect']
+            # Get variable array image as matrix
+            # matrix = mat['image']
+
+            # Find the bounding data from rect
+            current_bounds_array = find_bounds(rect, day_ranges, time_ranges)
+
+            # Converts data into array (each array = 1 time slot, index(item) = day
+            # find_edge(matrix, 5)
+
+            # Plot the edges detected from the rect array
+            # add_rect_edges(current_bounds_array)
+
+        except:
+            pass
 
     # print(np.squeeze(np.matrix(matrix)))
-    plot_matrix(matrix)
+    # plot_matrix(matrix)
+    plot_histogram(day_ranges, "Day Lengths")
+    plot_histogram(time_ranges, "Time Ranges")
 
+
+if __name__ == "__main__":
+    # count = 0
+    #
+    # day_ranges = []
+    # time_ranges = []
+    #
+    # mat = scipy.io.loadmat('data/house00002.mat', squeeze_me=True)
+    #
+    # # Get variable array rect as rect
+    # rect = mat['rect']
+    # # Get variable array image as matrix
+    # matrix = mat['image']
+    #
+    # # Find the bounding data from rect
+    # current_bounds_array = find_bounds(rect, day_ranges, time_ranges)
+    #
+    # # Converts data into array (each array = 1 time slot, index(item) = day
+    # find_edge(matrix, 5)
+    #
+    # #Plot the edges detected from the rect array
+    # add_rect_edges(matrix, current_bounds_array)
+    #
+    # # print(np.squeeze(np.matrix(matrix)))
+    # plot_matrix(matrix)
+    # plot_histogram(day_ranges, "Day Lengths")
+    # plot_histogram(time_ranges, "Time Ranges")
+    #
+
+    run_all_edge_data()
     print("Complete")
