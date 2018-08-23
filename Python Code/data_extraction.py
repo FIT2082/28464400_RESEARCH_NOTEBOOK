@@ -79,7 +79,7 @@ def plot_matrix(matrix):
     plot.show()
 
 
-def run_all_edge_data():
+def run_all_house_data():
     day_ranges = []
     time_ranges = []
 
@@ -95,54 +95,48 @@ def run_all_edge_data():
 
             # Get variable array rect as rect
             rect = mat['rect']
-            # Get variable array image as matrix
-            # matrix = mat['image']
 
             # Find the bounding data from rect
-            current_bounds_array = find_bounds(rect, day_ranges, time_ranges)
-
-            # Converts data into array (each array = 1 time slot, index(item) = day
-            # find_edge(matrix, 5)
-
-            # Plot the edges detected from the rect array
-            # add_rect_edges(current_bounds_array)
+            find_bounds(rect, day_ranges, time_ranges)
 
         except:
             pass
 
-    # print(np.squeeze(np.matrix(matrix)))
-    # plot_matrix(matrix)
     plot_histogram(day_ranges, "Day Lengths")
     plot_histogram(time_ranges, "Time Ranges")
 
 
-if __name__ == "__main__":
-    # count = 0
-    #
-    # day_ranges = []
-    # time_ranges = []
-    #
-    # mat = scipy.io.loadmat('data/house00002.mat', squeeze_me=True)
-    #
-    # # Get variable array rect as rect
-    # rect = mat['rect']
-    # # Get variable array image as matrix
-    # matrix = mat['image']
-    #
-    # # Find the bounding data from rect
-    # current_bounds_array = find_bounds(rect, day_ranges, time_ranges)
-    #
-    # # Converts data into array (each array = 1 time slot, index(item) = day
-    # find_edge(matrix, 5)
-    #
-    # #Plot the edges detected from the rect array
-    # add_rect_edges(matrix, current_bounds_array)
-    #
-    # # print(np.squeeze(np.matrix(matrix)))
-    # plot_matrix(matrix)
-    # plot_histogram(day_ranges, "Day Lengths")
-    # plot_histogram(time_ranges, "Time Ranges")
-    #
+def run_one_house(house):
+    day_ranges = []
+    time_ranges = []
 
-    run_all_edge_data()
+    mat = scipy.io.loadmat(house, squeeze_me=True)
+
+    # Get variable array rect as rect
+    rect = mat['rect']
+    # Get variable array image as matrix
+    matrix = mat['image']
+
+    # Find the bounding data from rect
+    current_bounds_array = find_bounds(rect, day_ranges, time_ranges)
+
+    # Converts data into array (each array = 1 time slot, index(item) = day
+    # find_edge(matrix, 5)
+
+    # Plot the edges detected from the rect array
+    add_rect_edges(matrix, current_bounds_array)
+
+    # print(np.squeeze(np.matrix(matrix)))
+    plot_matrix(matrix)
+    plot_histogram(day_ranges, "Day Lengths")
+    plot_histogram(time_ranges, "Time Ranges")
+
+if __name__ == "__main__":
+
+    ### Run the following function on one house ONLY
+    run_one_house('data/house00002.mat')
+
+    ### Run the following function on all houses
+    # run_all_house_data()
+
     print("Complete")
