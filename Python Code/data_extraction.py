@@ -5,8 +5,6 @@ import numpy as np
 import math
 import matplotlib.pyplot as plot
 
-mat = scipy.io.loadmat('house00003.mat', squeeze_me=True)
-rect = mat['rect'] # array
 
 def find_bounds(rect):
     # Bounds_array is created to return the bounds as an array
@@ -28,8 +26,10 @@ def find_bounds(rect):
     return bounds_array
 
 
+# def plot_histogram():
 
-def find_edge(userData, val, known_bounds):
+
+def find_edge(userData, val):
     for days in range(0, 365):
         current_day_array = []
         for hours in range(0,47):
@@ -50,6 +50,7 @@ def find_edge(userData, val, known_bounds):
                 matrix[hours][days-1] = 10
 
 
+def add_rect_edges(known_bounds):
     for bounds in known_bounds:
         start_day = math.floor(bounds[0])
         end_day = math.floor(bounds[2])
@@ -62,23 +63,30 @@ def find_edge(userData, val, known_bounds):
             for times in range(int(start_time), int(end_time)):
                 for days in range(int(start_day), int(end_day)):
                     matrix[times][days] = 10
-
-    print(known_bounds)
-
-
-
-data = scipy.io.loadmat('matlab.mat')
-matrix = data['image']
-
-
-current_bounds_array = find_bounds(rect)
-
-#converts data into array (each array = 1 time slot, index(item) = day
-find_edge(matrix, 5, current_bounds_array)
-# print(np.squeeze(np.matrix(matrix)))
+    # print(known_bounds)
 
 
 # Plotting the matrix
-plot.pcolor(matrix)
-plot.gca().invert_yaxis()
-plot.show()
+def plot_matrix(matrix):
+    plot.pcolor(matrix)
+    plot.gca().invert_yaxis()
+    plot.show()
+
+
+if __name__ == "__main__":
+    mat = scipy.io.loadmat('house00003.mat', squeeze_me=True)
+
+    # Get variable array rect as rect
+    rect = mat['rect']
+    # Get variable array image as matrix
+    matrix = mat['image']
+
+    # Find the bounding data from rect
+    current_bounds_array = find_bounds(rect)
+
+    #converts data into array (each array = 1 time slot, index(item) = day
+    # find_edge(matrix, 5)
+    add_rect_edges(current_bounds_array)
+
+    # print(np.squeeze(np.matrix(matrix)))
+    plot_matrix(matrix)
