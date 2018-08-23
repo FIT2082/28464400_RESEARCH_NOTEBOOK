@@ -84,8 +84,10 @@ if __name__ == "__main__":
     # Find the bounding data from rect
     current_bounds_array = find_bounds(rect)
 
-    #converts data into array (each array = 1 time slot, index(item) = day
+    # Converts data into array (each array = 1 time slot, index(item) = day
     # find_edge(matrix, 5)
+
+    #Plot the edges detected from the rect array
     add_rect_edges(current_bounds_array)
 
     # print(np.squeeze(np.matrix(matrix)))
