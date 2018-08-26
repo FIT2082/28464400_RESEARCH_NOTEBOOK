@@ -4,7 +4,7 @@ import scipy.io
 import numpy as np
 import matplotlib.pyplot as plt
 
-data = scipy.io.loadmat('matlab.mat')
+data = scipy.io.loadmat('data/house00002.mat')
 matrix = data['image']
 
 # convert data into array (each row = 1 time slot, column(item) = day)
