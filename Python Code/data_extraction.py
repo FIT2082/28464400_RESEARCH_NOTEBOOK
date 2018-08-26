@@ -134,9 +134,9 @@ def run_one_house(house):
 if __name__ == "__main__":
 
     ### Run the following function on one house ONLY
-    run_one_house('data/house00002.mat')
+    # run_one_house('data/house00002.mat')
 
     ### Run the following function on all houses
-    # run_all_house_data()
+    run_all_house_data()
 
     print("Complete")
