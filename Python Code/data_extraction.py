@@ -121,10 +121,10 @@ def run_one_house(house):
     current_bounds_array = find_bounds(rect, day_ranges, time_ranges)
 
     # Converts data into array (each array = 1 time slot, index(item) = day
-    # find_edge(matrix, 5)
+    find_edge(matrix, 5)
 
     # Plot the edges detected from the rect array
-    add_rect_edges(matrix, current_bounds_array)
+    # add_rect_edges(matrix, current_bounds_array)
 
     # print(np.squeeze(np.matrix(matrix)))
     plot_matrix(matrix)
@@ -134,9 +134,9 @@ def run_one_house(house):
 if __name__ == "__main__":
 
     ### Run the following function on one house ONLY
-    # run_one_house('data/house00002.mat')
+    run_one_house('data/house00002.mat')
 
     ### Run the following function on all houses
-    run_all_house_data()
+    # run_all_house_data()
 
     print("Complete")
