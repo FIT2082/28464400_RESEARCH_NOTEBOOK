@@ -22,6 +22,12 @@ The next two images show the same levels of filtration but this time using Minim
 
 ![Python Script Edge Detection](/images/MinimumFilter_99.png)
 
-Noticable from the above images, minimum filtration level of 99 removes most of the points from our dataset, which is undesirable.
+Noticable from the above images, minimum filtration level of 99 removes most of the points from our dataset, which is undesirable. Same goes for filtration level of 9 in Minimum filter, which fails to remove most of the noise from the intensity graph. On the other hand, it was distinguishable that median filter produced better results. For example, Median filter for 99 removed most of the noise from the graph, but Median filter of filteration level 9 couldn't remove the noises. Therefore, our final decision is to stick to Median filter with filtration level of around 61 as shown below:
+
+![Python Script Edge Detection](/images/MedianFilter_61.png)
 
 ## Goals before next meeting
+Before next meeting we will keep researching about implementing a technique of Machine Learning in Regression Analysis, and also try to improve our statistical model of detecting edges.
+
+
+
