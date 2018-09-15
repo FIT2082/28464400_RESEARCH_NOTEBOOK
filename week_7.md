@@ -1,5 +1,6 @@
 # Week 7 Summary
-This week, we had our last meeting with Lachlan. Unfortunately, he is not going to be continuing as our supervisor. Dr. Mahsa Salehi has been appointed as our new supervisor.
+This week, we had our last meeting with Lachlan. Unfortunately, he is not going to be continuing as our supervisor. 
+Dr. Mahsa Salehi has been appointed as our new supervisor.
 
 ## Goals completed since last week
 Since I was allocated to research on Machine Learning techniques that can be implemented, I read documentation on Regression Analysis and LSTM, while Adolphus came up with successful outcomes at attempts on improving our statistical model of detecting edges.
