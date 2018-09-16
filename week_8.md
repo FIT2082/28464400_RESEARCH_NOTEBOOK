@@ -21,4 +21,4 @@ Below is the table summarizing our updated tentative timeline for the rest of th
 | Organizing Code, Outcomes and Final Report                    | 12     |
 
 ## Goals before next meeting
-We plan to implement our first Machine Learning algorithm in the next two weeks.
+We plan to implement our first Machine Learning algorithm in the next two weeks. We understand it will be challenging to understand and implement Autoregressive Model in the next two weeks, so we will be dedicating a good deal of time in research to implement it. Our next meeting with Dr. Mahsa Salehi will be on the Friday of Week 9.
