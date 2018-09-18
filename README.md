@@ -5,7 +5,7 @@ Our research project is to detect sudden surge or plunge of electricity consumpt
 
 ## Project Contributors
 
-Research Supervisor - Lachlan Andrew
+Research Supervisor - Lachlan Andrew, Dr. Mahsa Salehi
 
 Researchers - Surayez Rahman & Adolphus Lee
 
