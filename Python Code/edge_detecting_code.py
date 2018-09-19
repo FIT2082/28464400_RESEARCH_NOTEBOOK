@@ -5,7 +5,7 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 
-data = scipy.io.loadmat('data/house00003.mat')
+data = scipy.io.loadmat('data/house00002.mat')
 matrix = data['image']
 matrixlist = np.squeeze(np.matrix(matrix)).tolist()
 
@@ -51,6 +51,7 @@ def find_rect_edge(matrix, val):
             if matrix[hours][days] == val and matrix[hours][days-1] == val:
                 matrix[hours][days] = 10
                 matrix[hours][days-1] = 10
+
 
 def add_rect_edges(matrix, known_bounds):
     for bounds in known_bounds:
@@ -101,7 +102,8 @@ def multiplot(start, ran):  # plotting multiple graphs (can be improved to edge 
         data = scipy.io.loadmat(('data/house' + str(i).zfill(5)) + '.mat', squeeze_me=True)
         matrix = data['image']
         matrixlist = np.squeeze(np.matrix(matrix)).tolist()
-        colormap(findedges(matrixlist, findmean(matrixlist, True)))
+        # colormap(findedges(matrixlist, findmean(matrixlist, True)))
+        colormap(findedges(matrixlist, find_nearby_mean(matrixlist, True)))
         run_one_house(data)
 
 def findSD(matrixlist, eachday=False):
@@ -137,6 +139,19 @@ def findmean(matrixlist, eachday=False):  # find the mean of each time slot (per
     return mean
 
 
+def find_nearby_mean(matrixlist, eachday=False):  # find the mean of each time slot (per horizontal)
+
+    if eachday == True:
+        matrixlist = np.swapaxes(matrixlist, 0, 1).tolist()
+
+    mean = []
+
+    for day in matrixlist:
+        mean.append(np.mean(day))
+
+    return mean
+
+
 def findmeansdratio(matrixlist, eachday=False):  # find the mean - standard deviation ratio of each time slot (per horizontal)
     if eachday == True:
         matrixlist = np.swapaxes(matrixlist, 0, 1).tolist()
@@ -145,22 +160,33 @@ def findmeansdratio(matrixlist, eachday=False):  # find the mean - standard devi
         msr.append(np.mean(day) / np.std(day))
     return msr
 
+def get_mean_sd_ratio(a, b):
+    return (np.mean([a, b])/ np.std([a, b]))
 
 #####################################################################################
 
+
 def findedges(matrixlist, varlist):
     matrix = []
-    for item in matrixlist:
-        # item = ndImage.filters.minimum_filter1d(item, 10)
-        item  = Pysignal.medfilt(item, [99])
 
+    for item in matrixlist:
+        # item = ndImage.filters.minimum_filter1d(item, 50)
+        item  = Pysignal.medfilt(item, [61])
         matrix.append(item)
 
     matrix = np.swapaxes(matrix, 0, 1).tolist()
-    for i in range(len(matrix)):
-        for j in range(len(matrix[i])):
+    for i in range(1, len(matrix)):
+        for j in range(1, len(matrix[i])):
+
+            ######################################
+            #### All calculations go here
+            ######################################
+
+            meansd_1 = get_mean_sd_ratio(matrix[i][j-1], matrix[i][j-1])
+
             if abs(matrix[i][j] - matrix[i][j - 1]) > varlist[i] and matrix[i][j - 1] != 2:
                 matrix[i][j] = 2
+
     for i in range(len(matrix)):
         for j in range(len(matrix[i])):
             if matrix[i][j] != 2:
@@ -175,4 +201,4 @@ def clean(matrixlist):  # remove noises
 
 # Pysignal.medfilt(matrixlist)
 # matrixlist = np.swapaxes(matrixlist,0,1).tolist()
-multiplot(2, 4)
+multiplot(2, 3)
