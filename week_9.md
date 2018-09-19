@@ -12,7 +12,8 @@ There are important properties of timeseries forcasting such as the ACF (Auto Co
 
 Why is it important to our research? Because, if the PACF shows a very steady range of values, it is a great indication of our dataset following a time series called Moving Average (MA). In the case of MA, the ACF shows a single peak of value, and does not show a regular trend, indicating it is indeed an MA. These are extremely important in determining the estimator equation of the time series at it explains which previous values to take into consideration when creating the predictor equation. 
 
-
+### ARIMA Algorithm & Implementation
+Currently we have implemented the ARIMA (AutoRegressive Integrated Moving Average) algorithm in Python, which seperates a list of values into training (60%) and test (40%) dataset. Based on the training dataset, it predicts the testing dataset values and compares the actual values to calculate the MSE (Mean Squared Error). It then checks several values that ARIMA function takes to fit a polynomial function for prediction, and gets the set of values with minimum MSE. That way we know the predictions are as accurate as possible.
 
 
 ## Goals before next meeting
