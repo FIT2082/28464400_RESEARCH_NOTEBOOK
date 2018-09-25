@@ -72,44 +72,34 @@ def plot_matrix(matrix):
     plt.gca().invert_yaxis()
     plt.show()
 
-def current_forecast(day_data_matrix, updated_order, training_list, train_size,  prev_index, updated_matrix, day):
+def current_forecast(day_data_matrix, updated_order, prev_index, updated_matrix, day):
+    train_size = 3
     train, actual_data = day_data_matrix[prev_index:prev_index + train_size], day_data_matrix[prev_index + train_size]
-    new_train_list = [x for x in train]
-    temp_train_list = training_list + new_train_list
+    train_list = [x for x in train]
 
     # ARIMA
-    try:
-        model = ARIMA(temp_train_list, order= updated_order)
-        model_fit = model.fit(disp=0)
-        current_prediction = model_fit.forecast()[0]
-        if (abs(current_prediction - actual_data) < 0.5 ):
-            updated_matrix[prev_index][day] = 10
-        else:
-            for each in temp_train_list:
-                if each != 10:
-                    training_list.append(each)
-    except:
-        print("Incompatible order:", updated_order)
-        pass
-    return training_list
+    model = ARIMA(train_list, order= updated_order)
+    model_fit = model.fit(disp=0)
+    current_prediction = model_fit.forecast()[0]
+    if (abs(current_prediction - actual_data) > 0.5 ):
+        updated_matrix[prev_index][day] = 10
+
 
 # Loading Data
 data = scipy.io.loadmat('data/house00002.mat', squeeze_me=True)
 matrix = data['image']
 matrixlist = np.squeeze(np.matrix(matrix)).tolist()
 matrix_Df = pd.DataFrame(matrixlist)
-training_list = []
 
 updated_matrix = matrix_Df.as_matrix()
-updated_order = (1, 1, 1)
-training_data_size = 6
+updated_order = (0, 0, 0)
 
 warnings.filterwarnings("ignore")
 
 for days in range(365):
     day_data_matrix = matrix_Df[days].as_matrix()
-    for hours in range(48 - training_data_size):
-        training_list = current_forecast(day_data_matrix, updated_order, training_list , training_data_size, hours, updated_matrix, days)
+    for hours in range(45):
+        current_forecast(day_data_matrix, updated_order, hours, updated_matrix, days)
 
 final_matrix = []
 for item in updated_matrix:
