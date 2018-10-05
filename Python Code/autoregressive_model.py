@@ -82,40 +82,43 @@ def current_forecast(day_data_matrix, updated_order, training_list, train_size, 
         model = ARIMA(temp_train_list, order= updated_order)
         model_fit = model.fit(disp=0)
         current_prediction = model_fit.forecast()[0]
-        if (abs(current_prediction - actual_data) < 0.5 ):
-            updated_matrix[prev_index][day] = 10
-        else:
-            for each in temp_train_list:
+        if (abs(current_prediction - actual_data) < 0.6 ):
+            for each in new_train_list:
                 if each != 10:
                     training_list.append(each)
+        else:
+            updated_matrix[prev_index + 1][day] = 10
+
     except:
         print("Incompatible order:", updated_order)
         pass
     return training_list
 
-# Loading Data
-data = scipy.io.loadmat('data/house00002.mat', squeeze_me=True)
-matrix = data['image']
-matrixlist = np.squeeze(np.matrix(matrix)).tolist()
-matrix_Df = pd.DataFrame(matrixlist)
-training_list = []
 
-updated_matrix = matrix_Df.as_matrix()
-updated_order = (1, 1, 1)
-training_data_size = 6
+if __name__ == "__main__":
+    # Loading Data
+    data = scipy.io.loadmat('data/house00002.mat', squeeze_me=True)
+    matrix = data['image']
+    matrixlist = np.squeeze(np.matrix(matrix)).tolist()
+    matrix_Df = pd.DataFrame(matrixlist)
+    training_list = []
 
-warnings.filterwarnings("ignore")
+    updated_matrix = matrix_Df.as_matrix()
+    updated_order = (0, 0, 0)
+    training_data_size = 4
 
-for days in range(365):
-    day_data_matrix = matrix_Df[days].as_matrix()
-    for hours in range(48 - training_data_size):
-        training_list = current_forecast(day_data_matrix, updated_order, training_list , training_data_size, hours, updated_matrix, days)
+    warnings.filterwarnings("ignore")
 
-final_matrix = []
-for item in updated_matrix:
-    # item = ndImage.filters.minimum_filter1d(item, 50)
-    item = Pysignal.medfilt(item, [11])
-    final_matrix.append(item)
+    for days in range(20):
+        day_data_matrix = matrix_Df[days].as_matrix()
+        for hours in range(47 - training_data_size):
+            training_list = current_forecast(day_data_matrix, updated_order, training_list , training_data_size, hours, updated_matrix, days)
 
-plot_matrix(final_matrix)
-plot_matrix(matrixlist)
+    final_matrix = []
+    for item in updated_matrix:
+        # item = ndImage.filters.minimum_filter1d(item, 50)
+        item = Pysignal.medfilt(item, [11])
+        final_matrix.append(item)
+
+    plot_matrix(final_matrix)
+    plot_matrix(matrixlist)
