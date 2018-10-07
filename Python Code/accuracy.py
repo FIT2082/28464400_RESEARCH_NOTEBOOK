@@ -189,7 +189,7 @@ if __name__ == "__main__":
                             if each != 10:
                                 training_list.append(each)
                 else:
-                    updated_matrix[hours+3][days] = 10
+                    updated_matrix[hours+training_data_size][days] = 10
                     # print('UPDATED')
 
                 # print(current_prediction, actual_data, current_prediction - actual_data, training_list)
@@ -204,6 +204,6 @@ if __name__ == "__main__":
         item = Pysignal.medfilt(item, [11])
         predicted_matrix.append(item)
 
-    # plot_matrix(predicted_matrix)
+    plot_matrix(predicted_matrix)
 
     print("The accuracy of edge detection:", accuracy_check(saved_matrix, predicted_matrix))
