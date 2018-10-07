@@ -134,12 +134,6 @@ def accuracy_check(saved_matrix, predicted_matrix):
                 if saved_matrix[times][days] == 10:
                     predicted_number_of_edges += 1
 
-    for times in range(0, 48):
-        for days in range(0, 360):
-            if saved_matrix[times][days] == 10:
-                if predicted_matrix[times][days] != 10:
-                    predicted_number_of_edges -= 1
-
     return (predicted_number_of_edges/accurate_number_of_edges)*100
 
 if __name__ == "__main__":
@@ -210,6 +204,6 @@ if __name__ == "__main__":
         item = Pysignal.medfilt(item, [11])
         predicted_matrix.append(item)
 
-    plot_matrix(predicted_matrix)
+    # plot_matrix(predicted_matrix)
 
     print("The accuracy of edge detection:", accuracy_check(saved_matrix, predicted_matrix))
