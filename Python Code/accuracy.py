@@ -77,7 +77,7 @@ def current_forecast(day_data_matrix, updated_order, training_list, train_size, 
             model = ARIMA(training_list, order=updated_order)
         model_fit = model.fit(disp=0)
         current_prediction = model_fit.forecast()[0]
-        if (abs(current_prediction - actual_data) < 0.6 ):
+        if (abs(current_prediction - actual_data) < 0.3 ):
             if len(training_list) != 0:
                 # print(new_train_list[-1])
                 if new_train_list[-1] != 10:
@@ -153,7 +153,7 @@ if __name__ == "__main__":
 
     updated_matrix = matrix_Df.as_matrix()
     updated_order = (0, 0, 0)
-    training_data_size = 4
+    training_data_size = 2
 
     warnings.filterwarnings("ignore")
 
