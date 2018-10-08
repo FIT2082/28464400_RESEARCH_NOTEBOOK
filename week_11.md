@@ -26,5 +26,5 @@ Our accuracy algorithm flaws have now been corrected and tested on most datasets
 We are aware of the poster preparation requirement, and we had a discussion with Dr. Mahsa about it. We are going to start working on the poster soon and since we have visual outcomes, we are going to put in the diagrams to illustrate the improvement of our work. We have to talk about the Statistical Model that gave amazing results, and our Machine Learning algorithm that gives satisfying results. We will have further discussion on our poster and work on it accordingly.
 
 ## Goals before next meeting
-
+Our focus is now to complete the Poster, Elevated pitch and presentation and writing the final report. We have very successful outcomes in terms of what we expected at the start of our research and we will keep our codes and outcomes as our final outcomes of the research. We will have our meeting with Dr. Mahsa this week to further discuss about poster, presentation and next steps of our research.
 
