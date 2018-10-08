@@ -1,7 +1,3 @@
-1. Accuracy Algorithm
-2. Constantly getting a set of values that lay outside the expected area
-
-
 # Week 10 Summary
 We invested this week on improving the ARIMA Machine Learning algorithm, and we have an accuracy measuring algorithm that properly detects the accuracy of our Machine Learning Algorithm compared to the actual datasets stored within the MATLAB variable of the datasets as 'savedrects'.
 
