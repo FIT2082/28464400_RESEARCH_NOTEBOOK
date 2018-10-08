@@ -1,7 +1,3 @@
-1. Better accuracy results
-2. Pictures of outcomes
-3. Poster
-
 # Week 11 Summary
 We have great progress this week. We are now confident that our ARIMA Machine Learning Model works properly on most of the datasets we have tried and gives fairly accurate results. Our accuracy detecting algorithm is now fixed and now gives proper accuracy levels for our output. 
 
@@ -26,6 +22,8 @@ Our accuracy algorithm flaws have now been corrected and tested on most datasets
 
 ![Python Script Edge Detection](/images/week11_accuracyoutput.png)
 
+## Poster
+We are aware of the poster preparation requirement, and we had a discussion with Dr. Mahsa about it. We are going to start working on the poster soon and since we have visual outcomes, we are going to put in the diagrams to illustrate the improvement of our work. We have to talk about the Statistical Model that gave amazing results, and our Machine Learning algorithm that gives satisfying results. We will have further discussion on our poster and work on it accordingly.
 
 ## Goals before next meeting
 
