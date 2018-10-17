@@ -204,6 +204,8 @@ if __name__ == "__main__":
         item = Pysignal.medfilt(item, [11])
         predicted_matrix.append(item)
 
+    print("The accuracy of edge detection:", accuracy_check(saved_matrix, predicted_matrix))
+
+
     plot_matrix(predicted_matrix)
 
-    print("The accuracy of edge detection:", accuracy_check(saved_matrix, predicted_matrix))
