@@ -13,5 +13,4 @@ We could successfully complete all the tasks as per the planning and the propose
 
 Until week 14, me and Adolphus will be working on completing the Final Report for our project.
 
-------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------- End of Project Notebook -------------------------------------------------
+---- End of Project Notebook ----
