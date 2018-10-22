@@ -10,6 +10,8 @@ We then use the heuristic based on the following formula to detect the accuracy 
 
 ![Python Script Edge Detection](/images/week12_classificationAccuracy.png)
 
+We ran this new Classification Algorithm on our dataset, and the new Classification Accuracy we achieve is: 93.14%, which is amazing.
+
 ## Poster
 
 ![Python Script Edge Detection](/images/28464400_Poster.png)
