@@ -119,22 +119,26 @@ def run_one_house(mat, mat2):
 
     return matrix
 
-def accuracy_check(saved_matrix, predicted_matrix):
-    accurate_number_of_edges = 0
-    predicted_number_of_edges = 0
+def accuracy_check(validation_matrix, predicted_matrix):
+    true_postive_edges = 0
+    true_negative_edges = 0
+    false_positive_edges = 0
+    false_negative_edges = 0
 
     for times in range(0, 48):
         for days in range(0, 360):
-            if saved_matrix[times][days] == 10:
-                accurate_number_of_edges += 1
+            if validation_matrix[times][days] == 10 and predicted_matrix[times][days] == 10:
+                true_postive_edges += 1
+            elif validation_matrix[times][days] != 10 and predicted_matrix[times][days] != 10:
+                true_negative_edges += 1
+            elif validation_matrix[times][days] != 10 and predicted_matrix[times][days] == 10:
+                false_positive_edges += 1
+            else:
+                false_negative_edges += 1
 
-    for times in range(0, 48):
-        for days in range(0, 360):
-            if predicted_matrix[times][days] == 10:
-                if saved_matrix[times][days] == 10:
-                    predicted_number_of_edges += 1
+    classification_accuracy = ((true_postive_edges + true_negative_edges)/ (true_postive_edges + true_negative_edges + false_positive_edges + false_negative_edges) )
 
-    return (predicted_number_of_edges/accurate_number_of_edges)*100
+    return classification_accuracy*100
 
 if __name__ == "__main__":
     # Getting actual data as saved_matrix
