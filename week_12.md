@@ -1,5 +1,5 @@
 # Week 12 Summary
-As planned, most of this week has been spent on creating the Poster, and discussing about the elevated pitch and presentation. The poster is already completed and we have visualized our Statistical Model that gave amazing results, and our Machine Learning algorithm that gives an accuracy of 68%.
+As planned, most of this week has been spent on creating the Poster, and discussing about the elevated pitch and presentation. The poster is already completed and we have visualized our Statistical Model that gave amazing results, and our Machine Learning algorithm that gives an accuracy of 93.1%.
 
 ## Goals completed since last week
 Our priority for this week was to wrap up Statistical and ML model, and complete the poster file. We also changed our accuracy algorithm to include the aspects of True Positive and True Negative. As suggested by Dr. Mahsa, a better accuracy algorithm is created when we not only consider the True Positive values, rather, we use the a "Confusion Matrix", where we calculate True Positive (Number of Times our Model predicted the correct Edge), True Negative (The number of times our model correctly detected an incorrect edge), False Positive (Number of Times our Model incorrectly predicted the Edge), and the False Negative (Number of Times our Model incorrectly predicted a non-Edge when it was actualy an edge). This is illustrated in the following image. 
@@ -10,7 +10,7 @@ We then use the heuristic based on the following formula to detect the accuracy 
 
 ![Python Script Edge Detection](/images/week12_classificationAccuracy.png)
 
-We ran this new Classification Algorithm on our dataset, and the new Classification Accuracy we achieve is: 93.14%, which is amazing.
+We ran this new Classification Algorithm on our dataset, and the new Classification Accuracy we achieve is: 93.14%. We also calculated the True Positive Rate (Sensitivity) to be 0.6907, and the True Negative Rate (Specificity) to be 0.9637. These scores seem to suggest that our Machine Learning Algorithm is making fairly accurate predictions.
 
 ## Poster
 
