@@ -137,8 +137,11 @@ def accuracy_check(validation_matrix, predicted_matrix):
                 false_negative_edges += 1
 
     classification_accuracy = ((true_postive_edges + true_negative_edges)/ (true_postive_edges + true_negative_edges + false_positive_edges + false_negative_edges) )
+    sensitivity = true_postive_edges / (true_postive_edges+false_negative_edges)
+    specificity = true_negative_edges / (true_negative_edges + false_positive_edges)
 
-    return classification_accuracy*100
+
+    return [classification_accuracy*100, sensitivity, specificity]
 
 if __name__ == "__main__":
     # Getting actual data as saved_matrix
@@ -208,7 +211,11 @@ if __name__ == "__main__":
         item = Pysignal.medfilt(item, [11])
         predicted_matrix.append(item)
 
-    print("The accuracy of edge detection:", accuracy_check(saved_matrix, predicted_matrix))
+    accuracy_heuristics = accuracy_check(saved_matrix, predicted_matrix)
+
+    print("The accuracy of edge detection:", accuracy_heuristics[0])
+    print("True Positive Rate (Sensitivity):", accuracy_heuristics[1])
+    print("True Negative Rate (Specificity):", accuracy_heuristics[2])
 
 
     plot_matrix(predicted_matrix)
