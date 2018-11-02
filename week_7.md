@@ -13,7 +13,7 @@ The following diagram is the successful model Adolphus worked on throughout this
 
 After a going through a lot of test samples, we have decided to use Median filter for filtration of noises. Improvements were made so that the lines do not extend too much to show incorrect areas as edges. Also, smaller lines of size from 0 to 20 were removed from the image to show clear areas of edges, because most edges extend over 20 days.
 
-The model has been tested on most of our datasets, and it gave accurate results for most of our tested intensity graphs. Based on that, we are very assured that the model will work on most of the datasets, and Lachlan was very happy to see our results. Therefore we will focus more on Machine learning techhniques such as regression modelling from now on.
+The model has been tested on some of our datasets, and it gave accurate results for most of our tested intensity graphs. Based on that, we are confident that the model will work on most of the datasets, and Lachlan was very happy to see our results. Therefore we will focus more on Machine learning techhniques such as regression modelling from now on.
 
 
 ## Goals before next meeting
